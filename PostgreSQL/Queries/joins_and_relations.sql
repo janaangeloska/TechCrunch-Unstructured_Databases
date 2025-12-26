@@ -1,20 +1,18 @@
--- 4. For each blogger, find the total number of comments and inlinks on their posts
--- With join and distinct
-SELECT
-	P.BLOGGERS_NAME,
-	COUNT(DISTINCT C.COM_ID) AS TOTAL_COMMENTS,
-	COUNT(DISTINCT I.INL_ID) AS TOTAL_INLINKS
-FROM
-	POSTS AS P
-	LEFT JOIN "comments" AS C ON C.POST_ID = P.POST_ID
-	LEFT JOIN INLINKS AS I ON I.POST_ID = P.POST_ID
-GROUP BY
-	P.BLOGGERS_NAME
-ORDER BY
-	TOTAL_INLINKS DESC,
-	TOTAL_COMMENTS DESC;
--- With CTE
-WITH
+-- SELECT -- 4. (With join and distinct) For each blogger, find the total number of comments and inlinks on their posts
+-- 	P.BLOGGERS_NAME,
+-- 	COUNT(DISTINCT C.COM_ID) AS TOTAL_COMMENTS,
+-- 	COUNT(DISTINCT I.INL_ID) AS TOTAL_INLINKS
+-- FROM
+-- 	POSTS AS P
+-- 	LEFT JOIN "comments" AS C ON C.POST_ID = P.POST_ID
+-- 	LEFT JOIN INLINKS AS I ON I.POST_ID = P.POST_ID
+-- GROUP BY
+-- 	P.BLOGGERS_NAME
+-- ORDER BY
+-- 	TOTAL_INLINKS DESC,
+-- 	TOTAL_COMMENTS DESC;
+	
+WITH -- 4. (With CTE)  For each blogger, find the total number of comments and inlinks on their posts
 	TOTAL_COMMENTS AS (
 		SELECT
 			P.BLOGGERS_ID,
@@ -47,8 +45,7 @@ ORDER BY
 	TOTAL_INLINKS DESC,
 	TOTAL_COMMENTS DESC;
 	
--- With not normalised values
-SELECT
+SELECT -- 4. (With not normalised values) For each blogger, find the total number of comments and inlinks on their posts
 	A."name" AS AUTHOR_NAME,
 	-- P.POST_ID,
 	SUM(P.NR_RETRIVED_COMMENTS) AS TOTAL_COMMENTS,
@@ -64,8 +61,7 @@ ORDER BY
 	TOTAL_INLINKS DESC,
 	TOTAL_COMMENTS DESC;
 
--- 5. Identify the most influential bloggers based on the average number of inlinks per post
-WITH
+WITH -- 5. Identify the most influential bloggers based on the average number of inlinks per post
 	TOTAL_INLINKS_POST AS (
 		SELECT
 			P.POST_ID,
@@ -91,8 +87,7 @@ ORDER BY
 	TOTAL_INLINKS DESC,
 	AVG_INLINKS_PER_POST DESC;
 
--- 6. Find the first 100 most commented posts along with their authors
-SELECT
+SELECT -- 6. Find the first 100 most commented posts along with their authors
     A."name" AS author_name,
     P.title AS post_title,
     COUNT(C.COM_ID) AS comment_count

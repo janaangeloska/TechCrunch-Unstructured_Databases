@@ -1,6 +1,4 @@
--- 1. Find all posts authored by "Jason Kincaid"
-SELECT
-	-- *
+SELECT -- 1. Find all posts authored by "Jason Kincaid"
 	P.POST_ID,
 	P.TITLE,
 	P.DATE
@@ -12,8 +10,7 @@ WHERE
 ORDER BY
 	P.DATE DESC;
 
--- 2. Find bloggers who have published posts after "2010-01-01"
-SELECT
+SELECT -- 2. Find bloggers who have published posts after "2010-01-01"
 	A."name",
 	COUNT(P.POST_ID) AS "posts_after_2010"
 FROM
@@ -26,8 +23,7 @@ GROUP BY
 ORDER BY
 	POSTS_AFTER_2010 DESC;
 
--- 3. Find posts that have more than 50 comments
-SELECT
+SELECT -- 3. Find posts that have more than 50 comments
 	P.TITLE,
 	COUNT(C.COM_ID) AS "total_comments"
 FROM
@@ -36,4 +32,4 @@ FROM
 GROUP BY
 	P.TITLE
 ORDER BY
-	TOTAL_COMMENTS DESC
+	TOTAL_COMMENTS DESC;

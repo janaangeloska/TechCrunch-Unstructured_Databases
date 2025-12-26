@@ -1,5 +1,4 @@
--- 7. Calculate the average number of comments and inlinks per post for each blogger
-WITH
+WITH -- 7. Calculate the average number of comments and inlinks per post for each blogger
 	TOTAL_INLINKS_POST AS (
 		SELECT
 			P.POST_ID,
@@ -38,8 +37,8 @@ ORDER BY
 	AVG_INLINKS_PER_POST DESC,
 	AVG_COMMENTS_PER_POST DESC;
 
--- 8. Identify the most influential bloggers by aggregating MEIBI and MEIBIX scores across their posts
-WITH
+WITH -- 8. Identify the most influential bloggers by aggregating MEIBI and MEIBIX scores across their posts
+
 	TOTAL_COMMENTS AS (
 		SELECT
 			P.BLOGGERS_ID,
@@ -85,8 +84,7 @@ FROM
 ORDER BY
 	TOTAL_INFLUENCE DESC;
 
--- 9. Find the first 100 posts with the highest engagement score (sum of comments and inlinks)
-WITH
+WITH -- 9. Find the first 100 posts with the highest engagement score (sum of comments and inlinks)
 	TOTAL_COMMENTS AS (
 		SELECT
 			P.BLOGGERS_ID,

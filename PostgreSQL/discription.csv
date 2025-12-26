@@ -1,0 +1,13 @@
+field,description
+query_number,Index of the task
+userid,The user who ran the query
+dbname,Database
+query,The whole query
+calls,Number of times the query was executed
+rows,Number of rows affected to execute the query (total for all)
+mean_rows,Average per call.
+total_exec_time_ms,Total time for all the calls
+min_exec_time_ms,min
+max_exec_time_ms,max
+mean_exec_time_ms,Average execution time per cell
+stddev_exec_time_ms,Standard deviation 
