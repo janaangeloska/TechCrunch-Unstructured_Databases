@@ -2,9 +2,8 @@ docker run -d \
   --name postgres-container \
   -e POSTGRES_USER=admin \
   -e POSTGRES_PASSWORD=admin \
-  -e POSTGRES_DB=mydatabase \
+  -e POSTGRES_DB=NbNP \
   -p 5432:5432 \
-  -v pgdata:/mnt/698043a9-3ff2-4f66-9168-7e6ee35f497f/postgresql/data \
   postgres
 
 localhost
