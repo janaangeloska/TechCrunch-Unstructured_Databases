@@ -1,0 +1,54 @@
+Neo4j Query Benchmark Results
+Query:
+
+MATCH (a:Author)-[:CREATED]->(p:Post)
+WHERE date(p.date) > date("2010-01-01")
+RETURN a.name AS author, count(p) AS posts_after_2010
+ORDER BY posts_after_2010 DESC
+
+CLIENT-SIDE TIME:
+Minimum:         13.14 ms
+Maximum:         27.32 ms
+Average:         15.03 ms
+Median:          14.09 ms
+Std Dev:          2.87 ms
+
+SERVER EXECUTION TIME (same as Browser):
+Minimum:          0.00 ms
+Maximum:         11.00 ms
+Average:          1.03 ms
+Median:           1.00 ms
+Std Dev:          1.96 ms
+
+Detailed results:
+
+Run  1: Client:   27.32 ms | Server Exec:  11.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run  2: Client:   15.43 ms | Server Exec:   0.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run  3: Client:   15.55 ms | Server Exec:   0.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run  4: Client:   21.95 ms | Server Exec:   0.00 ms | Server Total:   17.00 ms | dbHits:   62981
+Run  5: Client:   15.23 ms | Server Exec:   0.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run  6: Client:   15.55 ms | Server Exec:   0.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run  7: Client:   15.54 ms | Server Exec:   1.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run  8: Client:   15.66 ms | Server Exec:   1.00 ms | Server Total:   10.00 ms | dbHits:   62981
+Run  9: Client:   16.31 ms | Server Exec:   1.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run 10: Client:   14.74 ms | Server Exec:   0.00 ms | Server Total:   11.00 ms | dbHits:   62981
+Run 11: Client:   15.23 ms | Server Exec:   2.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 12: Client:   13.67 ms | Server Exec:   1.00 ms | Server Total:   10.00 ms | dbHits:   62981
+Run 13: Client:   15.08 ms | Server Exec:   1.00 ms | Server Total:   10.00 ms | dbHits:   62981
+Run 14: Client:   15.82 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 15: Client:   14.26 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 16: Client:   14.00 ms | Server Exec:   0.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 17: Client:   13.72 ms | Server Exec:   0.00 ms | Server Total:    8.00 ms | dbHits:   62981
+Run 18: Client:   13.67 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 19: Client:   14.07 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 20: Client:   13.14 ms | Server Exec:   0.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 21: Client:   13.28 ms | Server Exec:   1.00 ms | Server Total:    8.00 ms | dbHits:   62981
+Run 22: Client:   13.35 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 23: Client:   13.34 ms | Server Exec:   1.00 ms | Server Total:    8.00 ms | dbHits:   62981
+Run 24: Client:   13.38 ms | Server Exec:   1.00 ms | Server Total:    8.00 ms | dbHits:   62981
+Run 25: Client:   13.23 ms | Server Exec:   1.00 ms | Server Total:    8.00 ms | dbHits:   62981
+Run 26: Client:   13.21 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 27: Client:   13.26 ms | Server Exec:   0.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 28: Client:   14.08 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 29: Client:   14.11 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
+Run 30: Client:   13.78 ms | Server Exec:   1.00 ms | Server Total:    9.00 ms | dbHits:   62981
